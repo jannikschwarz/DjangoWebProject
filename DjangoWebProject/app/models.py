@@ -8,12 +8,15 @@ from enum import Enum
 class Product(models.Model): 
     name = models.CharField(
         max_length = 100)
-    price = models.DecimalField(
+    default_price = models.DecimalField(
         max_digits= 6,
-        decimal_places= 2)
-    def init(name, price):
-        this.name = name
-        this.price = price
+        decimal_places= 2,
+        default = 10)
+    #def __init__():
+    #    return
+    #def __init__(name, price):
+    #    this.name = name
+    #    this.price = price
 
     def getPrice(self):
         return self.price
@@ -42,46 +45,70 @@ class CoffeeType(Enum):
     CaffeeLatte = 'Caffee Latte'
 
 class Drink(Product):
-    size = models.CharField(
-        max_length = 1,
-        choices = [(tag.value, tag.name) for tag in Size] 
-        )
-    def init(name, price , size):
-        this.name = name
-        this.price = price
-        this.size = size
+    size = Size.SMALL
+    #size = models.CharField(
+    #    max_length = 1,
+    #    choices = [(tag.value, tag.name) for tag in Size],
+    #    default = Size.SMALL
+    #)
+    #def __init__():
+    #    return
+    #def __init__(name, size):
+    #    this.name = name
+    #    this.size = size
+
+    def setSize(self, size):
+        self.size = size
          
     def getSize(self):
         return self.size
 
     def getPrice(self):
-        if(self._Drinksize == Size.SMALL): return price + 0
-        elif(self._Drinksize == Size.MEDIUM) : return price + 5
-        elif(self._Drinksize == Size.LARGE) : return price + 10
+        if(self.size == Size.SMALL): return self.default_price
+        elif(self.size == Size.MEDIUM) : return self.default_price + 5
+        elif(self.size == Size.LARGE) : return self.default_price + 10
 
 class Soda(Drink):
-    price = 7
-    sodaType = 'Soda'
-    def init(name, size, sodaType):
-        this.name = name
-        this.size = size
-        this.sodaType = sodaType
+    subtype = models.CharField(
+        max_length = 100,
+        choices = [(tag.value, tag.name) for tag in SodaType],
+        default = SodaType.Cola
+    )
+    default_price = 7
+    #def __init__():
+    #    return
+    #def __init__(name, size, type):
+    #    this.name = name
+    #    this.size = size
+    #    this.subtype = type
 
 class Juice(Drink):
-    price = 5
-    juiceType = 'Juice'
-    def init(name, size, juiceType):
-        this.name = name
-        this.size = size
-        this.juiceType = juiceType
+    subtype = models.CharField(
+        max_length = 100,
+        choices = [(tag.value, tag.name) for tag in JuiceType],
+        default = JuiceType.AppleJuice
+    )
+    default_price = 5
+    #def __init__():
+    #    return
+    #def __init__(name, size, type):
+    #    this.name = name
+    #    this.size = size
+    #    this.subtype = type
 
 class Coffee(Drink):
-    price = 10
-    coffeeType = 'Coffee'
-    def init(name, size, coffeeType):
-        this.name = name
-        this.size = size
-        this.coffeeType = coffeeType
+    subtype = models.CharField(
+        max_length = 100,
+        choices = [(tag.value, tag.name) for tag in CoffeeType],
+        default = CoffeeType.Americano
+    )
+    default_price = 10
+    #def __init__():
+    #    return
+    #def __init__(name, size, type):
+    #    this.name = name
+    #    this.size = size
+    #    this.subtype = type
 
 
 
