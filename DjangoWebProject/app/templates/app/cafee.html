@@ -1,10 +1,36 @@
 {% extends "app/layout.html" %}
 
 {% block content %}
+<style>
+    table, th, td {
+        border: 3px solid black;
+    }
+</style>
 
 <h2> VIA University Cafee </h2>
 <h3> Welcome to VIA University Cafee</h3>
 
-
+<table style="width:100%">
+  <tr>
+    <th>Drink</th>
+    <th>Prize</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>Soda</td>
+    <td>Small: 7 <br /> Medium: 13 <br /> Large: 17</td>
+    <td>Fanta <br /> Cola <br /> Sprite</td>
+  </tr>
+  <tr>
+    <td>Juice</td>
+    <td>Small: 5 <br /> Medium: 10 <br /> Large: 15</td>
+    <td>Apple <br /> Orange <br /> Multi</td>
+  </tr>
+  <tr>
+    <td>Coffee</td>
+    <td>Small: 10 <br /> Medium: 15 <br /> Large: 20</td>
+    <td>Americano <br /> Cappuccino <br /> Caffee Latte</td>
+  </tr>
+</table>
 
 {% endblock %}

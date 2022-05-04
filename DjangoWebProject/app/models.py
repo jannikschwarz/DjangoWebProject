@@ -26,6 +26,21 @@ class Size(Enum):
     MEDIUM = 'M'
     LARGE = 'L'
 
+class JuiceType(Enum):
+    AppleJuice = 'Apple'
+    OrangeJuice = 'Orange'
+    MultiJuice = 'Multi'
+
+class SodaType(Enum):
+    Fanta = 'Fanta'
+    Cola = 'Cola'
+    Sprite = 'Sprite'
+
+class CoffeeType(Enum):
+    Americano = 'Americano'
+    Cappuccino = 'Cappuccino'
+    CaffeeLatte = 'Caffee Latte'
+
 class Drink(Product):
     size = models.CharField(
         max_length = 1,
@@ -45,22 +60,28 @@ class Drink(Product):
         elif(self._Drinksize == Size.LARGE) : return price + 10
 
 class Soda(Drink):
-    price = 10
-    def init(name, size):
+    price = 7
+    sodaType = 'Soda'
+    def init(name, size, sodaType):
         this.name = name
         this.size = size
+        this.sodaType = sodaType
 
 class Juice(Drink):
-    price = 10
-    def init(name, size):
+    price = 5
+    juiceType = 'Juice'
+    def init(name, size, juiceType):
         this.name = name
         this.size = size
+        this.juiceType = juiceType
 
 class Coffee(Drink):
     price = 10
-    def init(name, size ):
+    coffeeType = 'Coffee'
+    def init(name, size, coffeeType):
         this.name = name
         this.size = size
+        this.coffeeType = coffeeType
 
 
 
