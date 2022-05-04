@@ -1,15 +1,58 @@
 {% extends "app/layout.html" %}
-
 {% block content %}
+<head>
+    <script>
+    var drink = {
+        "Soda": {
+            "Fanta": ["Small", "Medium", "Large"],
+            "Cola": ["Small", "Medium", "Large"],
+            "Sprite": ["Small", "Medium", "Large"]
+        },
+        "Juice": {
+            "Apple": ["Small", "Medium", "Large"],
+            "Orange": ["Small", "Medium", "Large"],
+            "Multi": ["Small", "Medium", "Large"]
+        },
+        "Coffee": {
+            "Americano": ["Small", "Medium", "Large"],
+            "Cappucino": ["Small", "Medium", "Large"],
+            "Caffee Latte": ["Small", "Medium", "Large"]
+        }
+    }
+
+    window.onload = function () {
+        var drinkSel = document.getElementById("drink");
+        var drinkTypeSel = document.getElementById("drinkType");
+        var sizeSel = document.getElementById("size");
+        for (var x in drink) {
+            drinkSel.options[drinkSel.options.length] = new Option(x, x);
+        }
+        drinkSel.onchange = function () {
+            drinkTypeSel.length = 1;
+            sizeSel.length = 1;
+            for (var y in drink[this.value]) {
+                drinkTypeSel.options[drinkTypeSel.options.length] = new Option(y, y);
+            }
+        }
+        drinkTypeSel.onchange = function () {
+            sizeSel.length = 1;
+            var z = drink[drinkSel.value][this.value];
+            for (var i = 0; i < z.length; i++) {
+                sizeSel.options[sizeSel.options.length] = new Option(z[i], z[i]);
+            }
+        }
+    }
+</script>
+</head>
 <style>
     table, th, td {
         border: 3px solid black;
     }
 </style>
+<body>
+    <h3> Welcome to VIA University Cafee</h3>
 
-<h2> VIA University Cafee </h2>
-<h3> Welcome to VIA University Cafee</h3>
-
+<h4>Here are the purchable drinks</h4>
 <table style="width:100%">
   <tr>
     <th>Drink</th>
@@ -33,4 +76,22 @@
   </tr>
 </table>
 
+<form name="form1" id="form1" action="/addToOrder" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    Drink: <select name="drink" id="drink">
+    <option value="" selected="selected">Select drink</option>
+  </select>
+  <br><br>
+    DrinkType: <select name="drinkType" id="drinkType">
+    <option value="" selected="selected">Please select drinkType</option>
+  </select>
+  <br><br>
+    Size: <select name="size" id="size">
+    <option value="" selected="selected">Please select size</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Add Drink to order">  
+</form>
+</body>
 {% endblock %}
