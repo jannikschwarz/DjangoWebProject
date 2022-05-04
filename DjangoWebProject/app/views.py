@@ -43,3 +43,16 @@ def about(request):
             'year':datetime.now().year,
         }
     )
+
+def cafee(request):
+    """Renders the cafee page"""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/cafee.html',
+        {
+            'title':'Cafee',
+            'message':'This is a simple cafee page' ,
+            'year' : datetime.now().year,
+        }
+    )
