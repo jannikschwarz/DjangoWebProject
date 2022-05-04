@@ -1,0 +1,83 @@
+[
+  {
+    "model": "app.juice",
+    "pk": 1,
+    "fields": {
+      "name": "Apple Juice S",
+      "price": 7,
+      "subtype": "Apple"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 2,
+    "fields": {
+      "name": "Apple Juice M",
+      "price": 13,
+      "subtype": "Apple"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 3,
+    "fields": {
+      "name": "Apple Juice L",
+      "price": 18,
+      "subtype": "Apple"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 4,
+    "fields": {
+      "name": "Orange Juice S",
+      "price": 7,
+      "subtype": "Orange"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 5,
+    "fields": {
+      "name": "Orange Juice M",
+      "price": 13,
+      "subtype": "Orange"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 6,
+    "fields": {
+      "name": "Orange Juice L",
+      "price": 18,
+      "subtype": "Orange"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 7,
+    "fields": {
+      "name": "Multi Juice S",
+      "price": 7,
+      "subtype": "Multi"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 8,
+    "fields": {
+      "name": "Multi Juice M",
+      "price": 13,
+      "subtype": "Multi"
+    }
+  },
+  {
+    "model": "app.juice",
+    "pk": 9,
+    "fields": {
+      "name": "Multi Juice L",
+      "price": 18,
+      "subtype": "Multi"
+    }
+  }
+]

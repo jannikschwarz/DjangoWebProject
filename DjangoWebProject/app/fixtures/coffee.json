@@ -1,0 +1,83 @@
+[
+  {
+    "model": "app.coffee",
+    "pk": 10,
+    "fields": {
+      "name": "Americano S",
+      "price": 10,
+      "subtype": "Americano"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 11,
+    "fields": {
+      "name": "Americano M",
+      "price": 15,
+      "subtype": "Americano"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 12,
+    "fields": {
+      "name": "Americano L",
+      "price": 20,
+      "subtype": "Americano"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 13,
+    "fields": {
+      "name": "Capuccino S",
+      "price": 10,
+      "subtype": "Capuccino"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 14,
+    "fields": {
+      "name": "Capuccino M",
+      "price": 15,
+      "subtype": "Capuccino"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 15,
+    "fields": {
+      "name": "Capuccino L",
+      "price": 20,
+      "subtype": "Capuccino"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 16,
+    "fields": {
+      "name": "Caffe Latte S",
+      "price": 10,
+      "subtype": "Caffe Latte"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 17,
+    "fields": {
+      "name": "Caffe Latte M",
+      "price": 15,
+      "subtype": "Caffe Latte"
+    }
+  },
+  {
+    "model": "app.coffee",
+    "pk": 18,
+    "fields": {
+      "name": "Caffe Latte L",
+      "price": 20,
+      "subtype": "Caffe Latte"
+    }
+  }
+]

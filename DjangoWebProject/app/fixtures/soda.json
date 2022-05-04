@@ -1,0 +1,84 @@
+[
+  {
+    "model": "app.soda",
+    "pk": 19,
+    "fields": {
+      "name": "Fanta S",
+      "price": 7,
+      "subtype": "Fanta"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 20,
+    "fields": {
+      "name": "Fanta M",
+      "price": 13,
+      "subtype": "Fanta"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 21,
+    "fields": {
+      "name": "Fanta L",
+      "price": 18,
+      "subtype": "Fanta"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 22,
+    "fields": {
+      "name": "Cola S",
+      "price": 7,
+      "subtype": "Cola"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 23,
+    "fields": {
+      "name": "Cola M",
+      "price": 13,
+      "subtype": "Cola"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 24,
+    "fields": {
+      "name": "Cola L",
+      "price": 18,
+      "subtype": "Cola"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 25,
+    "fields": {
+      "name": "Sprite S",
+      "price": 7,
+      "subtype": "Sprite"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 26,
+    "fields": {
+      "name": "Sprite M",
+      "price": 13,
+      "subtype": "Sprite"
+    }
+  },
+  {
+    "model": "app.soda",
+    "pk": 27,
+    "fields": {
+      "name": "Sprite L",
+      "price": 18,
+      "subtype": "Sprite"
+    }
+  }
+]
+
