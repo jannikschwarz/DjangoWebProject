@@ -83,6 +83,10 @@
     <Content Include="app\templates\app\cafee.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="app\templates\app\create_order.html" />
+    <Content Include="app\templates\app\menu_drinks.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="requirements.txt" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />

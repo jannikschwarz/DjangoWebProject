@@ -59,6 +59,18 @@ class Order(models.Model):
     customer = models.CharField(max_length = 100,
         null = True)
     order_created = models.DateTimeField(auto_now_add = True)
+    price = models.DecimalField(null = True, 
+        decimal_places = 2,
+        max_digits = 7)
 
+    def addProduct(self, product):
+        self.products.add(product)
+        self.calcPrice()
+        self.save()
+
+    def calcPrice(self):
+        price = 0
+        for p in self.products:
+            price += p.price
 
 # Create your models here.

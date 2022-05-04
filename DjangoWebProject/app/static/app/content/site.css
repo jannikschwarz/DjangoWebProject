@@ -1,12 +1,13 @@
 body {
+    box-sizing: border-box;
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -86,4 +87,19 @@ input[type="checkbox"].input-validation-error {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    padding: 0.5rem 1rem 1rem 0.5rem;
+}
+
+.card {
+    width: 250px;
+    background-color: white;
+    box-shadow: darkgrey 0px 0px 20px;
+    margin: 1rem 1.5rem ;
+    padding: 1rem;
 }
