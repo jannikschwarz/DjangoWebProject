@@ -17,7 +17,7 @@ def create_order(request):
     if form.is_valid():
         form.save()
         drinks = Drink.objects.all()
-        context = { "drinks": drinks, "order": form }
+        context = { "drinks": drinks, "order": form.instance }
         return render(request, 'app/menu_drinks.html', context)
 
     context['form'] = form
@@ -28,10 +28,25 @@ def create_order(request):
 
 def menu_drinks(request):
     assert isinstance(request, HttpRequest)
-    drinks = Drink.objects.all()
-    order = Order.objects.first()
-    context = { "drinks": drinks, "order": order }
-    return render(request, "app/menu_drinks.html", context)
+    if 'Checkout' in request.POST:
+        order = Order.objects.get(pk=request.POST['order.id'])
+        context = { "order": order }
+        return render(request, "app/checkout.html", context)
+    elif 'Add' in request.POST:
+        drink = Product.objects.get(pk=request.POST['Add'])
+        order = Order.objects.get(pk=request.POST['order.id'])
+        order.addProduct(drink)
+        drinks = Drink.objects.all()
+        context = { "drinks": drinks, "order": order }
+        return render(request, 'app/menu_drinks.html', context)
+    else:
+        return render(request, 'app/menu_drinks.html', {})
+
+
+def checkout(request):
+    order = Order.objects.get(pk=request.POST['order.id'])
+    context = { "order": order }
+    return render(request, "app/checkout.html", context)
 
 def home(request):
     """Renders the home page."""

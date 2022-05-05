@@ -55,7 +55,7 @@ class Coffee(Drink):
     price = 10
 
 class Order(models.Model):
-    products = models.ManyToManyField(Product, blank = True)
+    products = models.ManyToManyField(Product, blank = True, through = 'OrderProduct')
     customer = models.CharField(max_length = 100,
         null = True)
     order_created = models.DateTimeField(auto_now_add = True)
@@ -63,14 +63,26 @@ class Order(models.Model):
         decimal_places = 2,
         max_digits = 7)
 
-    def addProduct(self, product):
-        self.products.add(product)
+    def addProduct(self, prod):
+        if prod in self.products.all():
+            op = self.orderproduct_set.get(order = self, product = prod)
+            op.count += 1
+            op.save()
+        else:
+            self.products.add(prod)
         self.calcPrice()
         self.save()
 
     def calcPrice(self):
-        price = 0
-        for p in self.products:
-            price += p.price
+        self.price = 0
+        for op in self.orderproduct_set.all():
+            self.price += op.count * op.product.price
+
+            
+class OrderProduct(models.Model):
+    order = models.ForeignKey(Order, on_delete = models.CASCADE)
+    product = models.ForeignKey(Product, on_delete = models.PROTECT)
+    count = models.IntegerField(default = 1)
+
 
 # Create your models here.

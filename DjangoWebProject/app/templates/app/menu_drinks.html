@@ -1,25 +1,36 @@
 {% extends "app/layout.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-2">
-        <h2>Order info</h2>
-        <p>Customer: {{ order.customer }}</p>
-        <p>Total: {{ order.total }}</p>
-    </div>
-    <div class="col-sm-10">
+<form action="/menu/drinks" method="post">
+    {% csrf_token %}
 
-        <section class="menu drinks">
-
-        {% for drink in drinks %}
-            <div class="card">
-                <h3> {{ drink.name }} </h3>
-                <p> {{ drink.size }} {{ drink.price }}DKK</p>
-                <input class="btn btn btn-primary" type="button" value="add"/>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="row">
+                <h2>Order info</h2>
+                <input type="hidden" value="{{ order.id }}" name="order.id"/>
+                <p>Customer: {{ order.customer }}</p>
+                <p>Total: {{ order.price }}</p>
             </div>
-        {% endfor %}
-        </section>
+            <div class="row">
+                <input class="btn btn-primary" type="submit" value="Checkout" name="Checkout"/>
+            </div>
+        </div>
+        <div class="col-sm-10">
+
+            <section class="menu drinks">
+
+            {% for drink in drinks %}
+
+                <div class="card">
+                    <h3> {{ drink.name }} </h3>
+                    <p> {{ drink.size }} {{ drink.price }}DKK</p>
+                    <input class="btn btn-primary" type="submit" value="{{drink.id}}" name="Add">
+                </div>
+            {% endfor %}
+            </section>
+        </div>
     </div>
-</div>
+</form>
 
 {% endblock %}
