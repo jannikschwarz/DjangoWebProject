@@ -19,6 +19,9 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                    'placeholder':'Password'}))
 
 class OrderForm(forms.ModelForm):
+    customer = forms.CharField(label=_("Customer name"),
+                              widget=forms.TextInput({
+                                  'class': 'form-control'}))
     class Meta:
         model = Order
         exclude = ['products', 'order_created', 'price']
